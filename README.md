@@ -1,4 +1,4 @@
-# Ansible Web Cluster — Projet de démonstration
+# Ansible Web Cluster - Projet de démonstration
 
 Déploiement automatisé d'un mini-cluster de 3 serveurs web (nginx) avec
 Ansible : inventaire multi-hosts, rôles réutilisables, gestion des secrets
