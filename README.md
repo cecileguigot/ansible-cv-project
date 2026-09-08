@@ -1,4 +1,4 @@
-# Ansible Web Cluster — Projet de démonstration
+# Ansible Web Cluster - Projet de démonstration
 
 Déploiement automatisé d'un mini-cluster de 3 serveurs web (nginx) avec
 Ansible : inventaire multi-hosts, rôles réutilisables, gestion des secrets
@@ -118,7 +118,7 @@ ansible-playbook -i inventory/hosts.ini site.yml --ask-vault-pass
 
 ## Sécurité
 
-- `docker/ansible_lab_key` (clé privée) et `docker/.env` sont exclus du repo via `.gitignore` — ils doivent être régénérés localement par quiconque clone ce projet.
+- `docker/ansible_lab_key` (clé privée) et `docker/.env` sont exclus du repo via `.gitignore` , ils doivent être régénérés localement par quiconque clone ce projet.
 - L'authentification SSH par mot de passe est désactivée dans l'image Docker (`PasswordAuthentication no`), seule la clé publique fournie au build permet de se connecter.
 - Le mot de passe sudo est distinct du mot de passe de build et n'existe qu'à l'intérieur du vault chiffré.
 - Les ports des conteneurs sont liés à `127.0.0.1` uniquement, pas accessibles depuis le réseau.
@@ -132,4 +132,4 @@ ansible-playbook -i inventory/hosts.ini site.yml --ask-vault-pass
 
 ## Auteur
 
-Cécile — projet réalisé dans le cadre d'une formation pratique à Ansible.
+Cécile , projet réalisé dans le cadre d'une formation pratique à Ansible.
