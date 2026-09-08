@@ -1,31 +1,37 @@
 services:
   web1:
-    build: .
+    build:
+      context: .
+      args:
+        DEPLOY_PASSWORD: ${DEPLOY_PASSWORD}
     container_name: ansible-web1
     hostname: web1
     ports:
-      - "2221:22"
-      - "8081:80"
+      - "127.0.0.1:2221:22"
     networks:
       - ansible-lab
 
   web2:
-    build: .
+    build:
+      context: .
+      args:
+        DEPLOY_PASSWORD: ${DEPLOY_PASSWORD}
     container_name: ansible-web2
     hostname: web2
     ports:
-      - "2222:22"
-      - "8082:80"
+      - "127.0.0.1:2222:22"
     networks:
       - ansible-lab
 
   web3:
-    build: .
+    build:
+      context: .
+      args:
+        DEPLOY_PASSWORD: ${DEPLOY_PASSWORD}
     container_name: ansible-web3
     hostname: web3
     ports:
-      - "2223:22"
-      - "8083:80"
+      - "127.0.0.1:2223:22"
     networks:
       - ansible-lab
 

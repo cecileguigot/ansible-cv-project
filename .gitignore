@@ -1,0 +1,4 @@
+
+# Sécurité : ne jamais committer
+docker/.env
+docker/ansible_lab_key
