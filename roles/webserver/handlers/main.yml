@@ -1,0 +1,6 @@
+---
+- name: Redémarrer nginx
+  shell: |
+    nginx -s stop || true
+    sleep 1
+    nginx

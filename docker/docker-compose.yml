@@ -1,0 +1,34 @@
+services:
+  web1:
+    build: .
+    container_name: ansible-web1
+    hostname: web1
+    ports:
+      - "2221:22"
+      - "8081:80"
+    networks:
+      - ansible-lab
+
+  web2:
+    build: .
+    container_name: ansible-web2
+    hostname: web2
+    ports:
+      - "2222:22"
+      - "8082:80"
+    networks:
+      - ansible-lab
+
+  web3:
+    build: .
+    container_name: ansible-web3
+    hostname: web3
+    ports:
+      - "2223:22"
+      - "8083:80"
+    networks:
+      - ansible-lab
+
+networks:
+  ansible-lab:
+    driver: bridge

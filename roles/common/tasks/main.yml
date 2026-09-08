@@ -1,0 +1,21 @@
+---
+- name: Mettre à jour le cache apt
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Installer des paquets utiles de base
+  apt:
+    name:
+      - curl
+      - vim
+      - htop
+    state: present
+
+- name: Déployer un message d'accueil (MOTD) contenant une info issue du vault
+  copy:
+    dest: /etc/motd
+    content: |
+      Bienvenue sur {{ inventory_hostname }}
+      Serveur géré par Ansible - {{ project_name }}
+      Code d'accès admin (démo vault) : {{ vault_admin_token }}

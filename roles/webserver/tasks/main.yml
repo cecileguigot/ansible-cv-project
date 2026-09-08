@@ -1,0 +1,23 @@
+---
+- name: Installer nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+
+- name: Déployer une page d'accueil personnalisée
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    mode: "0644"
+  notify: Redémarrer nginx
+
+- name: Vérifier si nginx tourne déjà
+  command: pgrep nginx
+  register: nginx_check
+  failed_when: false
+  changed_when: false
+
+- name: Démarrer nginx (environnement conteneur, sans systemd)
+  command: nginx
+  when: nginx_check.rc != 0

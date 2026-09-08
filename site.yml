@@ -1,0 +1,8 @@
+---
+- name: Déployer et configurer le cluster web
+  hosts: webservers
+  become: true
+
+  roles:
+    - common
+    - webserver
