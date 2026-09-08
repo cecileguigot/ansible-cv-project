@@ -1,0 +1,35 @@
+name: Ansible Lint & Validation
+
+# Déclenche la pipeline à chaque push ou pull request sur la branche principale
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupère le code de votre dépôt GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Installe Python sur la machine virtuelle de test
+      - name: Set up Python
+        uses: actions/tools/python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. Installe Ansible et l'outil de vérification ansible-lint
+      - name: Install Ansible and Ansible-Lint
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible ansible-lint
+
+      # 4. Vérifie la syntaxe de vos playbooks et fichiers de configuration
+      - name: Run Ansible Lint
+        run: |
+          ansible-lint site.yml
+
